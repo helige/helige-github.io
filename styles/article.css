@@ -1,0 +1,164 @@
+html {
+  background-color: #F1F1F1;
+  font-family: Noto Sans, verdana, sans-serif;
+  font-size: 15px;
+}
+
+/* Fallbacks for browsers not supporting rem units */
+h1 { font-size: 140%; }
+h2 { font-size: 120%; }
+h3 { font-size: 105%; }
+
+body {
+  margin: auto;
+  max-width: 56em;
+  background-color: #FFF;
+  padding: none;
+  padding-bottom: 0.5em;
+  border-top: none;
+  color: #111;
+  box-shadow: 0px 0px 1em #BBA;
+}
+
+div#permalink {
+  color: grey;
+  font-size: 70%;
+  text-align: right;
+}
+
+div#permalink > a {
+  color: grey;
+}
+
+h1 { font-size: 1.5rem;  font-weight: bold; }
+h2 { font-size: 1.3rem;  font-weight: bold; }
+h3 { font-size: 1.15rem; font-weight: bold; }
+
+h1 a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+h1 a:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+header.top {
+  background-color: #234;
+  padding: 1em;
+  padding-top: 0.1em;
+  padding-bottom: 0.3em;
+  color: #FFF;
+}
+
+header.top nav a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+div.title-block {
+  text-align: center;
+  padding-bottom: 1.2em;
+  margin: none;
+}
+
+div.title-block h1 {
+  font-size: 200%;
+  margin-bottom: 0.1em;
+}
+
+div.title-block .sub-title {
+  text-align: center;
+  font-style: italic;
+}
+
+header.top hr {
+  width: 30%;
+  border: 1px solid #455;
+  margin: auto;
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+div.nav-block {
+  color: #CDE;
+  margin-right: 1em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+div#content h1 {
+  border-bottom: 0.1em solid #BBB;
+}
+
+div#content h1.title {
+  font-size: 1.7rem;
+  color: #955;
+  border-bottom: none;
+  background: none;
+}
+
+p.subtitle {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #955;
+}
+
+p.author {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+p.date {
+  font-size: 1.15rem;
+  font-weight: bold;
+}
+
+div#content {
+  padding: 1em;
+  padding-bottom: 0.5em;
+}
+
+@media print {
+  html {
+    background-color: white;
+  }
+
+  body {
+    max-width: 60em;
+    color: black;
+    box-shadow: none;
+  }
+
+  div#permalink {
+    color: #555;
+  }
+
+  div#permalink > a {
+    color: #555;
+  }
+
+  header.top {
+    background-color: white;
+  }
+
+  header.top hr {
+    display: none;
+  }
+
+  div.title-block {
+    display: none;
+  }
+
+  div.nav-block {
+    display: none;
+  }
+
+  div#content h1.title {
+    font-size: 2rem;
+    color: black;
+    text-align: center;
+    margin-bottom: 2em;
+  }
+}
