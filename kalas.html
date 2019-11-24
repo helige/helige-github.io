@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Skattjakt</title>
+
+  <style type="text/css">
+    body {
+      background-color: #000;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: x-large;
+    }
+
+    h3 {
+      color: #FF8;
+      text-shadow: #000 4px 4px 3px;
+    }
+
+    #input-table {
+      margin: auto;
+      background-color: rgba(0,0,0,0.6);
+      color: #FFF;
+    }
+
+    .output-table {
+      margin: auto;
+      text-align: left;
+    }
+
+    #output1 {
+      background-color: rgba(0,0,0,0.6);
+      color: #FFF;
+    }
+
+    #output2 {
+      background-color: #FFF;
+      min-width: 80%;
+      color: #000;
+    }
+
+    td {
+      padding: 0.2em;
+    }
+
+    input {
+      font-size: large;
+    }
+
+    button {
+      font-size: large;
+    }
+
+    .output-table {
+      visibility: collapse;
+    }
+  </style>
+</head>
+
+<body background="http://static3.grsites.com/archive/textures/metal/metal003.gif">
+
+<h3>Lars Cristianos glömda skatt</h3>
+
+<table id="input-table">
+<tr><td>Ge mig en ledtråd</td></tr>
+<tr><td><input type="text" id="clue"></input></td></tr>
+</table>
+<button onclick="set_reply()">Svara</button>
+
+<br/><br/>
+
+<table id="output1" class="output-table">
+<tr><td id="answer1"></td></tr>
+</table>
+
+<table id="output2" class="output-table">
+<tr><td id="answer2"></td></tr>
+</table>
+
+</body>
+
+<script type="text/javascript">
+  var clueInput = document.getElementById('clue')
+  var output1   = document.getElementById('output1')
+  var output2   = document.getElementById('output2')
+  var answer1   = document.getElementById('answer1')
+  var answer2   = document.getElementById('answer2')
+
+  var coordinates =
+        { internet:  'N  28° 02,947<br/>E 016° 42,572',
+          alexander: 'N  28° 02,934<br/>E 016° 42,563',
+          volvo:     'N  28° 02,922<br/>E 016° 42,550',
+          teide:     'N  28° 02,906<br/>E 016° 42,534',
+          cucumber:  'N  28° 02,897<br/>E 016° 42,517',
+          apple:     'N  28° 02,896<br/>E 016° 42,503',
+          lunar:     'N  28° 02,914<br/>E 016° 42,497',
+          våg:       'N  28° 02,914<br/>E 016° 42,479',
+          jupiter:   'N  28° 02,932<br/>E 016° 42,463',
+          youTube:   'N  28° 02,953<br/>E 016° 42,439',
+          johannes:  'N  28° 02,952<br/>E 016° 42,427'
+        }
+
+  var wrongs =
+        [ 'Jag vet inte vad du pratar om.',
+          'Nä... försök igen.',
+          'Skojar du eller?',
+          'Ge mig en riktig ledtråd!',
+          'Kom igen. Bättre kan du!'
+        ]
+
+  function set_reply_after_thinking() {
+    var clue = clueInput.value.trim().toLowerCase()
+    coord = coordinates[clue];
+
+    if (coord != undefined) {
+      output1.style.visibility = 'collapse';
+      output2.style.visibility = 'visible';
+      answer2.innerHTML =
+        'Bra! Här är koordinaterna till nästa ledtråd:<br/><br/>' + coord
+    } else {
+      output1.style.visibility = 'visible';
+      answer1.innerHTML = wrongs[Math.floor(Math.random() * 5)];
+    }
+  }
+
+  function set_reply() {
+    output1.style.visibility = 'visible';
+    output2.style.visibility = 'collapse';
+    answer1.innerHTML = 'hmmm...';
+    setTimeout(set_reply_after_thinking, 1000)
+  }
+
+  clueInput.addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+      set_reply();
+    }
+  });
+  clueInput.focus()
+</script>
